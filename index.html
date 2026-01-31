@@ -13,11 +13,16 @@
 <body>
 
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="set_up"><a href="#set_up" class="header-anchor">Set up</a></h1>
+<div class="franklin-content"><p><div class="franklin-toc"><ol><li><a href="#set_up">Set up</a><ol><li><a href="#update_title">Update title</a></li><li><a href="#update_configmd_file">Update config.md file</a></li><li><a href="#create_a_table_of_contents_optional">Create a table of contents &#40;optional&#41;</a></li><li><a href="#upload_using_github_desktop">Upload using Github Desktop</a></li></ol></li><li><a href="#examples">Examples</a><ol><li><a href="#how_to_enter_text">How to enter text</a><ol><li><a href="#the_standard_lorem_ipsum_passage_used_since_the_1500s">The standard Lorem Ipsum passage, used since the 1500s</a></li></ol></li><li><a href="#how_to_render_math_equations">How to render math equations</a></li><li><a href="#how_to_insert_julia_code_with_outputs">How to insert julia code &#40;with outputs&#33;&#41;</a></li><li><a href="#how_to_insert_a_table_from_a_csv_file">How to insert a table from a CSV file</a></li><li><a href="#how_to_insert_an_image_file">How to insert an image file</a></li><li><a href="#how_to_insert_clickable_thumbnail_to_a_youtube_video">How to insert clickable thumbnail to a Youtube video</a></li><li><a href="#how_to_inject_raw_html">How to inject raw HTML</a></li></ol></li></ol></div> </p>
+<h1 id="set_up"><a href="#set_up" class="header-anchor">Set up</a></h1>
 <ul>
 <li><p>&#91;add julia to vscode&#93;</p>
 </li>
-<li><p>ctrl&#43;J &#43; ctrl&#43;O ⟶ julia terminal</p>
+<li><p>alt&#43;J &#43; alt&#43;O ⟶ julia terminal</p>
+<ul>
+<li><p>more keybindings are <a href="https://www.julia-vscode.org/docs/stable/userguide/keybindings/">here</a></p>
+</li>
+</ul>
 </li>
 <li><p>mkdir &quot;root dir&quot; &#43; &quot;mysite1&quot; under it</p>
 </li>
@@ -56,7 +61,40 @@
 </ul>
 <h1 id="examples"><a href="#examples" class="header-anchor">Examples</a></h1>
 <h2 id="how_to_enter_text"><a href="#how_to_enter_text" class="header-anchor">How to enter text</a></h2>
+<h3 id="the_standard_lorem_ipsum_passage_used_since_the_1500s"><a href="#the_standard_lorem_ipsum_passage_used_since_the_1500s" class="header-anchor">The standard Lorem Ipsum passage, used since the 1500s</a></h3>
+<p>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;</p>
 <h2 id="how_to_render_math_equations"><a href="#how_to_render_math_equations" class="header-anchor">How to render math equations</a></h2>
+<ul>
+<li><p>this inline &#40;enclosed by dollar-signs&#41; math: for some triangles \(a^2 + b^2 = c^2\)</p>
+</li>
+<li><p>and this is display &#40;enclosed by double-dollar-signs&#41;:</p>
+</li>
+</ul>
+\[
+t_{i},f_{i},\ i=1\ldots n,\ \ F(t) = \sum_{k=1}^{m} x_{k}\varphi_{k}(t) \\
+\sum_{i=1}^{n} \vert F(t_{i})-f_{i}\vert^2 \ \stackrel{x_{1},\ldots,x_{m}}{\to} \min\\
+A=\left[ \varphi_{1}(t),\ldots,\varphi_{m}(t)\right]\ \ n\times m\ \text{matrix}\\
+A^{T}A \text{ is a } m\times m \text{ non-negative definite matrix }\\
+\]
+\[
+t_{i},f_{i},\ i=1\ldots n,\ \ F(t) = \sum_{k=1}^{m} x_{k}\varphi_{k}(t) \\
+\sum_{i=1}^{n} \vert F(t_{i})-f_{i}\vert^2 \ \stackrel{x_{1},\ldots,x_{m}}{\to} \min\\
+A=\left[ \varphi_{1}(t),\ldots,\varphi_{m}(t)\right]\ \ n\times m\ \text{matrix}\\
+A^{T}A \text{ is a } m\times m \text{ non-negative definite matrix }\\
+\]
+<ul>
+<li><p>brute-force method to get rid the display-math auto numbering of katex:</p>
+</li>
+</ul>
+<pre><code class="language-css">/* it is somwhere in the franklin.css file */
+.katex-display::after &#123;
+  counter-increment: eqnum;
+  /*content: &quot;&#40;&quot; counter&#40;eqnum&#41; &quot;&#41;&quot;;*/
+  content: &quot;&quot;;
+  position: relative;
+  float: right;
+  padding-right: 5px;
+&#125;</code></pre>
 <h2 id="how_to_insert_julia_code_with_outputs"><a href="#how_to_insert_julia_code_with_outputs" class="header-anchor">How to insert julia code &#40;with outputs&#33;&#41;</a></h2>
 <h2 id="how_to_insert_a_table_from_a_csv_file"><a href="#how_to_insert_a_table_from_a_csv_file" class="header-anchor">How to insert a table from a CSV file</a></h2>
 <h2 id="how_to_insert_an_image_file"><a href="#how_to_insert_an_image_file" class="header-anchor">How to insert an image file</a></h2>
