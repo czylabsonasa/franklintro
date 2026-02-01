@@ -23,23 +23,23 @@
 </ul>
 <h1 id="set_up"><a href="#set_up" class="header-anchor">Set up</a></h1>
 <ul>
-<li><p>&#91;add julia to vscode&#93;</p>
+<li><p>i&#39;m using julia from a terminal and - for me - vscode is only for editing &#40;too old to rock&#39;n roll&#41;, so here i&#39;m deviating from doggo&#39;s workflow</p>
 </li>
-<li><p>alt&#43;J &#43; alt&#43;O ⟶ julia terminal</p>
-<ul>
-<li><p>more keybindings are <a href="https://www.julia-vscode.org/docs/stable/userguide/keybindings/">here</a></p>
+<li><p>create a <code>yourusername.github.io</code> repo on github and prepare for work on it locally</p>
 </li>
-</ul>
+<li><p>start julia in the local <code>yourusername.github.io</code> directory</p>
 </li>
-<li><p>mkdir &quot;root dir&quot;</p>
-</li>
-<li><p>cd &quot;root dir&quot;</p>
-</li>
-<li><p>activate project</p>
+<li><p>activate a project</p>
 </li>
 <li><p>add Franklin</p>
 </li>
-<li><p>newsite&#40;&quot;mysite1&quot;; template&#61;&quot;sandbox&quot;&#41; &#43; serve&#40;&#41;</p>
+<li><p>issue <code>newsite&#40;&quot;mysite1&quot;; template&#61;&quot;sandbox&quot;&#41;</code> and <code>serve&#40;&#41;</code></p>
+</li>
+<li><p>now you can browse the site on <code>localhost:8000</code></p>
+</li>
+<li><p>the actual site is inside the <code>mysite1/__site</code> directory, which is gitignored by default. It means, that you can create a repo named <code>mysite</code> on github with the content of this <code>__site</code> dir, and u can activate the github-pages on it...</p>
+</li>
+<li><p>issue <code>publish&#40;;prepath&#61;&quot;mysite1&quot;&#41;</code>, push it and browse <code>username.github.io/mysite1</code></p>
 </li>
 </ul>
 <h2 id="update_title"><a href="#update_title" class="header-anchor">Update title</a></h2>
