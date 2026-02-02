@@ -256,7 +256,85 @@ Source: Wikipedia
 </li>
 </ul>
 <p><a href="https://www.youtube.com/watch?v&#61;fVBiLEtZB7A"><img src="https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg" alt="YT thumbnail" /></a></p>
+<ul>
+<li><p>the image is too large, in markdown AFAIK no official way to resize it, but u can style it through the <code>alt</code> part:</p>
+</li>
+<li><p>markdown syntax &#40;here <code>thumbnail</code> will be the <code>alt</code> part&#41;:</p>
+</li>
+</ul>
+<pre><code class="language-markdown">&#91;&#33;&#91;thumbnail&#93;&#40;https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg&#41;&#93;&#40;https://www.youtube.com/watch?v&#61;fVBiLEtZB7A&#41;</code></pre>
+<ul>
+<li><p>the css syntax:</p>
+</li>
+</ul>
+<pre><code class="language-css">img&#91;alt&#61;&quot;thumbnail&quot;&#93; &#123; 
+   width: 100px; 
+&#125;</code></pre>
+<ul>
+<li><p>the result is</p>
+</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v&#61;fVBiLEtZB7A"><img src="https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg" alt="thumbnail" /></a></p>
+<ul>
+<li><p>more thumbnails:</p>
+</li>
+</ul>
+<p><a href="https://www.youtube.com/watch?v&#61;fVBiLEtZB7A"><img src="https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg" alt="thumbnail" /></a> <a href="https://www.youtube.com/watch?v&#61;SSYV8gC2UkQ"><img src="https://img.youtube.com/vi/SSYV8gC2UkQ/0.jpg" alt="thumbnail" /></a></p>
+<ul>
+<li><p>with <code>\textoutput&#123;&#125;</code> function&#40;?&#41; one can generate and include thumbnails programatically</p>
+<ul>
+<li><p><a href="https://franklinjl.org/faq/technical/">How to use loops for templating?</a></p>
+</li>
+</ul>
+</li>
+<li><p>the relevant part in the <code>index.md</code>:</p>
+<ul>
+<li><p>define and call the function:</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-julia">function tmaker&#40;lista&#41;
+   tmp&#61;String&#91;&#93;
+   for elem in lista
+      push&#33;&#40;
+         tmp,
+         &quot;&quot;&quot;&#91;&#33;&#91;thumbnail&#93;&#40;https://img.youtube.com/vi/&#36;&#40;elem&#41;/0.jpg&#41;&#93;&#40;https://www.youtube.com/watch?v&#61;&#36;&#40;elem&#41;&#41;&quot;&quot;&quot;
+      &#41;
+   end
+   join&#40;tmp,&#39;\n&#39;&#41;
+end
+
+tmaker&#40;&#91;&quot;gzvn-hdlkUg&quot;,&quot;fVBiLEtZB7A&quot;,&quot;SSYV8gC2UkQ&quot;,&quot;zmlulaxatRs&quot;&#93;&#41;|&gt;println</code></pre>
+<ul>
+<li><p>include its output:</p>
+</li>
+</ul>
+<pre><code class="language-markdown">\textoutput&#123;./tmaker&#125;</code></pre>
+<ul>
+<li><p>the result:</p>
+</li>
+</ul>
+<a href="https://www.youtube.com/watch?v&#61;gzvn-hdlkUg"><img src="https://img.youtube.com/vi/gzvn-hdlkUg/0.jpg" alt="thumbnail" /></a> <a href="https://www.youtube.com/watch?v&#61;fVBiLEtZB7A"><img src="https://img.youtube.com/vi/fVBiLEtZB7A/0.jpg" alt="thumbnail" /></a> <a href="https://www.youtube.com/watch?v&#61;SSYV8gC2UkQ"><img src="https://img.youtube.com/vi/SSYV8gC2UkQ/0.jpg" alt="thumbnail" /></a> <a href="https://www.youtube.com/watch?v&#61;zmlulaxatRs"><img src="https://img.youtube.com/vi/zmlulaxatRs/0.jpg" alt="thumbnail" /></a>
 <h2 id="how_to_inject_raw_html"><a href="#how_to_inject_raw_html" class="header-anchor">How to inject raw HTML</a></h2>
+<ul>
+<li><p>syntax:</p>
+<ul>
+<li><p>enclose it by <code>~~~ ~~~</code>:</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-markdown">~~~
+&lt;iframe width&#61;&quot;640&quot; height&#61;&quot;360&quot; src&#61;&quot;https://www.youtube.com/embed/fVBiLEtZB7A&quot; title&#61;&quot;YouTube video player&quot; frameborder&#61;&quot;0&quot; allow&#61;&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+~~~</code></pre>
+<ul>
+<li><p>the result:</p>
+</li>
+</ul>
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/fVBiLEtZB7A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 <div class="page-foot">
     <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> Dabbling Doggoo. Last modified: February 02, 2026.
     Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a> and the <a href="https://julialang.org">Julia programming language</a>.

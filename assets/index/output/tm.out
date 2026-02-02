@@ -1,0 +1,11 @@
+MethodError: no method matching show(::Type{MIME{Symbol("text/html")}}, ::String)
+
+Closest candidates are:
+  show(!Matched::IO, ::AbstractString)
+   @ Base strings/io.jl:197
+  show(!Matched::IO, ::AbstractString, !Matched::Any)
+   @ Base multimedia.jl:123
+  show(!Matched::IO, ::Any)
+   @ Base show.jl:457
+  ...
+
